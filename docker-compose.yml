@@ -6,10 +6,10 @@ services:
       args:
         REPO_URL: https://github.com/Affan1/Rails-App
         BRANCH: main
-    command: rails server -b 0.0.0.0 -p 3000
+    command: rails server -b 0.0.0.0 -p 5454
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
+      - "5454:5454"
     environment:
       RAILS_ENV: development

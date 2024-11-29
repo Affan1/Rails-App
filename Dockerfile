@@ -34,7 +34,7 @@ RUN bundle install
 COPY . /app
 
 # Expose port 3000 for the Rails server
-EXPOSE 3000
+EXPOSE 5454
 
 # Command to start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "5454"]
