@@ -22,7 +22,7 @@ WORKDIR /app
 # Clone your Rails app repository into the container
 ARG REPO_URL
 ARG BRANCH=main
-RUN echo "Cloning Repository: ${REPO_URL} on branch : ${BRANCH}"
+RUN echo "Cloning Repository: $REPO_URL on branch : $BRANCH"
 RUN git clone $REPO_URL . && git checkout $BRANCH
 
 # Install Bundler to manage gems

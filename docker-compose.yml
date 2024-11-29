@@ -7,8 +7,6 @@ services:
         REPO_URL: https://github.com/Affan1/Rails-App
         BRANCH: main
     command: rails server -b 0.0.0.0 -p 5454
-    volumes:
-      - .:/app
     ports:
       - "5454:5454"
     environment:
