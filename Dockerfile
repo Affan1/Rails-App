@@ -27,12 +27,6 @@ RUN git clone $REPO_URL . && git checkout $BRANCH
 # Install Bundler to manage gems
 RUN gem install bundler
 
-# Copy package.json and yarn.lock before installing JavaScript dependencies
-COPY package.json yarn.lock /app/
-
-# Install JavaScript dependencies using Yarn
-RUN yarn install
-
 # Install Ruby gems
 RUN bundle install
 
