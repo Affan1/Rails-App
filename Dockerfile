@@ -16,7 +16,7 @@ ENV RAILS_ENV=development \
     BUNDLE_BIN=/gems/bin \
     PATH=/gems/bin:$PATH
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
 # Clone your Rails app repository into the container
@@ -27,11 +27,17 @@ RUN git clone $REPO_URL . && git checkout $BRANCH
 # Install Bundler to manage gems
 RUN gem install bundler
 
-# Install gems
-RUN bundle install
+# Copy package.json and yarn.lock before installing JavaScript dependencies
+COPY package.json yarn.lock /app/
 
 # Install JavaScript dependencies using Yarn
 RUN yarn install
+
+# Install Ruby gems
+RUN bundle install
+
+# Copy the rest of the application files into the container
+COPY . /app
 
 # Expose port 3000 for the Rails server
 EXPOSE 3000
