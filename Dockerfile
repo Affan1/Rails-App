@@ -31,7 +31,7 @@ ARG BRANCH=main
 RUN git checkout $BRANCH
 
 # Install gems
-RUN bundle install --full-index
+RUN bundle install 
 
 # Install JavaScript dependencies using Yarn
 RUN yarn install --check-files
