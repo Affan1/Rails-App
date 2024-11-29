@@ -19,19 +19,16 @@ ENV RAILS_ENV=development \
 # Set the working directory
 WORKDIR /app
 
-# Install Bundler to manage gems
-RUN bundle install --full-index
-
 # Clone your Rails app repository into the container
 ARG REPO_URL
-RUN git clone $REPO_URL /app
-
-# Switch to the correct branch (if needed)
 ARG BRANCH=main
-RUN git checkout $BRANCH
+RUN git clone $REPO_URL . && git checkout $BRANCH
+
+# Install Bundler to manage gems
+RUN gem install bundler
 
 # Install gems
-RUN bundle install 
+RUN bundle install
 
 # Install JavaScript dependencies using Yarn
 RUN yarn install --check-files
