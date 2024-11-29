@@ -31,7 +31,7 @@ RUN gem install bundler
 RUN bundle install
 
 # Install JavaScript dependencies using Yarn
-RUN yarn install --check-files
+RUN yarn install
 
 # Expose port 3000 for the Rails server
 EXPOSE 3000
