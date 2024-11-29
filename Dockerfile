@@ -20,7 +20,7 @@ ENV RAILS_ENV=development \
 WORKDIR /app
 
 # Install Bundler to manage gems
-RUN gem install bundler
+RUN gem install bundler --full-index
 
 # Clone your Rails app repository into the container
 ARG REPO_URL
